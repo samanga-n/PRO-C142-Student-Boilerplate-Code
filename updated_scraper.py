@@ -1,14 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
+from webdriver_manager.chrome import ChromeDriverManager
 
 # NASA Exoplanet URL
 START_URL = "https://exoplanets.nasa.gov/exoplanet-catalog/"
 
 # Webdriver
-browser = webdriver.Chrome("D:/Setup/chromedriver_win32/chromedriver.exe")
+browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 browser.get(START_URL)
 
 time.sleep(10)
